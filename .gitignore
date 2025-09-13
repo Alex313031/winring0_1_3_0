@@ -22,3 +22,9 @@ Thumbs.db
 *.obj
 *.pdb
 *.stamp
+
+/source/dll/Debug/
+/source/dll/Release/
+/source/sample/Cpp/Debug/
+/source/sample/Cpp/Release/
+/source/sample/Cs/obj/
