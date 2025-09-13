@@ -28,3 +28,11 @@ Thumbs.db
 /source/sample/Cpp/Debug/
 /source/sample/Cpp/Release/
 /source/sample/Cs/obj/
+
+/source/dll/sys/lib
+*objfre_wxp_x86/
+*objchk_wxp_x86/
+buildfre_wxp_x86.log
+buildfre_wxp_x86.wrn
+buildchk_wxp_x86.log
+buildchk_wxp_x86.wrn
