@@ -1,13 +1,11 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.14.36414.22 d17.14
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "WinRing0SampleCpp", "sample\Cpp\OlsSample.vcxproj", "{1E16E041-2C19-4257-8883-7A0D51623B31}"
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "WinRing0SampleCpp", "sample\Cpp\OlsSample.vcproj", "{1E16E041-2C19-4257-8883-7A0D51623B31}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinRing0SampleCs", "sample\Cs\WinRing0SampleCs.csproj", "{57CA3241-55C9-4607-A13C-D3D09708D4F2}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "WinRing0", "dll\WinRing0.vcxproj", "{68FEADCC-D5C0-40A0-9F61-C82AB47CDA1D}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "WinRing0", "dll\WinRing0.vcproj", "{68FEADCC-D5C0-40A0-9F61-C82AB47CDA1D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -58,8 +56,5 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {4D224D86-D864-43EF-9476-A2EB7BE1A770}
 	EndGlobalSection
 EndGlobal
