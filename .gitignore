@@ -1,0 +1,24 @@
+# OS Stuff
+.DS_Store
+.eslintcache
+.directory
+Thumbs.db
+
+# MSVS Stuff
+*.vcxproj.user
+*.tlog
+*.vs/
+/.vs/
+
+# Output directories
+/out*
+/debug/
+/release/
+/release64/
+/dist/
+
+# Built Files
+*.a
+*.obj
+*.pdb
+*.stamp
