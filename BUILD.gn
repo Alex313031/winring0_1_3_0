@@ -1,0 +1,130 @@
+# WinRing0 
+
+import("//build/config/precompiled_header.gni")
+import("//build/config/static_shared.gni")
+import("//build/config/win/manifest.gni")
+
+# All winring binaries
+group("winring0_all") {
+  public_deps = [
+    ":winring0",
+    ":winring0_sample",
+  ]
+}
+
+precompiled_header("dll_precompiled") {
+  precompiled_header = "stdafx.h"
+  precompiled_source = "source/dll/stdafx.cpp"
+}
+
+# winring0 .dll
+shared_library("winring0") {
+  configs += [
+    ":winring0_dll_config",
+    ":dll_precompiled",
+  ]
+  sources = [
+    "source/dll/Driver.h",
+    "source/dll/OlsApi.h",
+    "source/dll/OlsApiInit.h",
+    "source/dll/OlsApiInitDef.h",
+    "source/dll/OlsApiInitExt.h",
+    "source/dll/OlsDef.h",
+    "source/dll/OlsDll.h",
+    "source/dll/OlsIoctl.h",
+    "source/dll/resource.h",
+    "source/dll/stdafx.h",
+    "source/dll/OlsApi.def",
+  ]
+
+  sources += [
+    "source/dll/Driver.cpp",
+    "source/dll/OlsApi.cpp",
+    "source/dll/OlsDll.cpp",
+    "source/dll/OlsDll.rc",
+  ]
+}
+
+# DLL specific stuff
+config("winring0_dll_config") {
+  defines = []
+  if (current_cpu == "x64" || current_cpu == "x86") {
+    defines += [
+      "OLSDLL_EXPORTS",
+      "OLS_WIN_RING0",
+    ]
+  }
+  libs = [
+  ]
+}
+
+precompiled_header("sample_precompiled") {
+  precompiled_header = "stdafx.h"
+  precompiled_source = "source/sample/Cpp/stdafx.cpp"
+}
+
+# Sample C++ application to test winring0 .dll and .sys driver
+executable("winring0_sample") {
+  configs -= [ "//build/config/win:console", ]
+  configs += [
+    "//build/config/win:windowed",
+    ":winring0_sample_config",
+    ":sample_precompiled",
+  ]
+
+  sources = [
+    "source/sample/Cpp/OlsSample.h",
+    "source/sample/Cpp/OlsSample.rc",
+    "source/sample/Cpp/OlsSampleDlg.h",
+    "source/sample/Cpp/Resource.h",
+    "source/sample/Cpp/stdafx.h",
+  ]
+
+  sources += [
+    "source/sample/Cpp/OlsSample.cpp",
+    "source/sample/Cpp/OlsSampleDlg.cpp",
+  ]
+
+  deps = [
+    ":winring0_sample_manifest",
+    ":winring0",
+  ]
+}
+
+windows_manifest("winring0_sample_manifest") {
+  sources = [ as_invoker_manifest, ]
+
+  if (use_common_controls) {
+    sources += [ common_controls_manifest, ]
+  }
+}
+
+# Reverse lib linking order for ATL!
+config("winring0_sample_config") {
+  defines = []
+  ldflags = []
+  libs = []
+  defines = [
+    "_SECURE_ATL",
+  ]
+  if (is_debug) {
+    defines += [ "RUN_TIME_DYNAMIC_LINKING", ]
+    ldflags += [
+      "/NODEFAULTLIB:uafxcwd.lib",
+      "/NODEFAULTLIB:libcmtd.lib",
+    ]
+    libs += [
+      "uafxcwd.lib",
+      "libcmtd.lib",
+    ]
+  } else {
+    ldflags += [
+      "/NODEFAULTLIB:uafxcw.lib",
+      "/NODEFAULTLIB:libcmt.lib",
+    ]
+    libs += [
+      "uafxcw.lib",
+      "libcmt.lib",
+    ]
+  }
+}

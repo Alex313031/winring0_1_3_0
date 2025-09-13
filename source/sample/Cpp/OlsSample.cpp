@@ -19,12 +19,15 @@
 #include "../../dll/OlsApiInit.h"
 #else // for Load-Time Dynamic Linking
 #include "../../dll/OlsApi.h"
+
+#if !defined(__clang__)
 #ifdef _M_X64
 #pragma comment(lib, "../../../release/WinRing0x64.lib")
-#else if
+#else // x86
 #pragma comment(lib, "../../../release/WinRing0.lib")
-#endif
-#endif
+#endif // _M_X64
+#endif // !defined(__CLANG__)
+#endif // RUN_TIME_DYNAMIC_LINKING
 
 // COlsSampleApp
 
@@ -70,7 +73,7 @@ BOOL COlsSampleApp::InitInstance()
 		AfxMessageBox(_T("DLL Load Error!!"));
 		return FALSE;
 	}
-#else if
+#else
 	if(! InitializeOls())
 	{
 		AfxMessageBox(_T("Error InitializeOls()!!"));
@@ -84,7 +87,7 @@ BOOL COlsSampleApp::InitInstance()
 
 #ifdef RUN_TIME_DYNAMIC_LINKING
 	DeinitOpenLibSys(&m_hOpenLibSys);
-#else if
+#else
 	DeinitializeOls();
 #endif
 
