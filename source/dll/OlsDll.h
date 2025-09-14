@@ -18,10 +18,10 @@
 #define OLS_MAJOR_VERSION				1
 #define OLS_MINOR_VERSION				3
 #define OLS_REVISION				    0
-#define OLS_RELESE					   18
+#define OLS_RELEASE					   19
 
 #define OLS_VERSION	((OLS_MAJOR_VERSION << 24) | (OLS_MINOR_VERSION << 16) |\
-		(OLS_REVISION << 8) | OLS_RELESE) 
+		(OLS_REVISION << 8) | OLS_RELEASE) 
 
 //-----------------------------------------------------------------------------
 //

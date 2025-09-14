@@ -74,7 +74,7 @@ DWORD WINAPI GetDllVersion(PBYTE major, PBYTE minor, PBYTE revision, PBYTE relea
 		*major = OLS_MAJOR_VERSION;
 		*minor = OLS_MINOR_VERSION;
 		*revision = OLS_REVISION;
-		*release = OLS_RELESE;
+		*release = OLS_RELEASE;
 	}
 
 	return OLS_VERSION;

@@ -88,8 +88,8 @@ END
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 1,3,0,13
- PRODUCTVERSION 1,3,0,13
+ FILEVERSION 1,3,0,14
+ PRODUCTVERSION 1,3,0,14
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -107,12 +107,12 @@ BEGIN
             VALUE "Comments", "The modified BSD license"
             VALUE "CompanyName", "OpenLibSys.org"
             VALUE "FileDescription", "WinRing0 Sample for C++"
-            VALUE "FileVersion", "1.3.0.13"
+            VALUE "FileVersion", "1.3.0.14"
             VALUE "InternalName", "WinRing0SampleCpp.exe"
             VALUE "LegalCopyright", "Copyright 2007-2009 OpenLibSys.org. All rights reserved."
             VALUE "OriginalFilename", "WinRing0SampleCpp.exe"
             VALUE "ProductName", "WinRing0"
-            VALUE "ProductVersion", "1.3.0.13"
+            VALUE "ProductVersion", "1.3.0.14"
         END
     END
     BLOCK "VarFileInfo"
