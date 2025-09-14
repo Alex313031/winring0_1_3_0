@@ -52,6 +52,8 @@ COlsSampleApp theApp;
 
 // COlsSampleApp initialization
 
+static FILE* fDummyFile;
+
 BOOL COlsSampleApp::InitInstance()
 {
 	// InitCommonControlsEx() is required on Windows XP if an application
@@ -65,6 +67,15 @@ BOOL COlsSampleApp::InitInstance()
 	InitCommonControlsEx(&InitCtrls);
 
 	CWinApp::InitInstance();
+
+  // Allow and allocate conhost
+  if (!AllocConsole()) {
+    return false;
+  }
+  // File handler pointer to a dummy file, possibly an actual logfile
+  FILE* fNonExistFile = fDummyFile;
+  freopen_s(&fNonExistFile, "CONOUT$", "w", stdout);
+  freopen_s(&fNonExistFile, "CONOUT$", "w", stderr);
 
 #ifdef RUN_TIME_DYNAMIC_LINKING
 	m_hOpenLibSys = NULL;
