@@ -47,15 +47,19 @@ shared_library("winring0") {
 
 # DLL specific stuff
 config("winring0_dll_config") {
+  cflags = []
   defines = []
-  if (current_cpu == "x64" || current_cpu == "x86") {
-    defines += [
-      "_USRDLL",
-      "OLSDLL_EXPORTS",
-      "OLS_WIN_RING0",
-      "_PHYSICAL_MEMORY_SUPPORT",
-    ]
-  }
+
+  cflags += [
+    "-Wno-deprecated-declarations",
+  ]
+
+  defines += [
+    "_USRDLL",
+    "OLSDLL_EXPORTS",
+    "OLS_WIN_RING0",
+    "_PHYSICAL_MEMORY_SUPPORT",
+  ]
 }
 
 precompiled_header("sample_precompiled") {
@@ -102,13 +106,20 @@ windows_manifest("winring0_sample_manifest") {
 # Reverse lib linking order for ATL!
 config("winring0_sample_config") {
   defines = []
+  cflags = []
   ldflags = []
   libs = []
+
+  cflags += [
+    "-Wno-deprecated-declarations",
+  ]
+
   defines = [
     "_SECURE_ATL",
     "RUN_TIME_DYNAMIC_LINKING",
     "_PHYSICAL_MEMORY_SUPPORT",
   ]
+
   if (is_debug) {
     ldflags += [
       "/NODEFAULTLIB:uafxcwd.lib",
