@@ -106,9 +106,9 @@ config("winring0_sample_config") {
   libs = []
   defines = [
     "_SECURE_ATL",
+    "RUN_TIME_DYNAMIC_LINKING",
   ]
   if (is_debug) {
-    defines += [ "RUN_TIME_DYNAMIC_LINKING", ]
     ldflags += [
       "/NODEFAULTLIB:uafxcwd.lib",
       "/NODEFAULTLIB:libcmtd.lib",
