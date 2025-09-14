@@ -50,12 +50,12 @@ config("winring0_dll_config") {
   defines = []
   if (current_cpu == "x64" || current_cpu == "x86") {
     defines += [
+      "_USRDLL",
       "OLSDLL_EXPORTS",
       "OLS_WIN_RING0",
+      "_PHYSICAL_MEMORY_SUPPORT",
     ]
   }
-  libs = [
-  ]
 }
 
 precompiled_header("sample_precompiled") {
@@ -107,6 +107,7 @@ config("winring0_sample_config") {
   defines = [
     "_SECURE_ATL",
     "RUN_TIME_DYNAMIC_LINKING",
+    #"_PHYSICAL_MEMORY_SUPPORT",
   ]
   if (is_debug) {
     ldflags += [
