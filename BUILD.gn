@@ -107,7 +107,7 @@ config("winring0_sample_config") {
   defines = [
     "_SECURE_ATL",
     "RUN_TIME_DYNAMIC_LINKING",
-    #"_PHYSICAL_MEMORY_SUPPORT",
+    "_PHYSICAL_MEMORY_SUPPORT",
   ]
   if (is_debug) {
     ldflags += [

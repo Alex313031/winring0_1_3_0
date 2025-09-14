@@ -65,6 +65,6 @@ WritePciConfigByteEx	@94
 WritePciConfigWordEx	@95
 WritePciConfigDwordEx	@96
 
-;ReadDmiMemory			@100
-;ReadPhysicalMemory     @101
-;WritePhysicalMemory    @102
+ReadDmiMemory			@100
+ReadPhysicalMemory     @101
+WritePhysicalMemory    @102
