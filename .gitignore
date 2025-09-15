@@ -34,3 +34,7 @@ Thumbs.db
 *objchk*
 buildfre*
 buildchk*
+
+/source/dll/x64/*
+/source/sample/Cpp/x64/*
+/source/x64/*
