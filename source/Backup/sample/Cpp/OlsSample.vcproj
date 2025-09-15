@@ -163,6 +163,7 @@
 			/>
 			<Tool
 				Name="VCManifestTool"
+				AdditionalManifestFiles="OlsSample.exe.manifest"
 			/>
 			<Tool
 				Name="VCXDCMakeTool"
@@ -446,6 +447,10 @@
 				>
 			</File>
 		</Filter>
+		<File
+			RelativePath=".\OlsSample.exe.manifest"
+			>
+		</File>
 	</Files>
 	<Globals>
 		<Global
