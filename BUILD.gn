@@ -60,6 +60,11 @@ config("winring0_dll_config") {
     "OLS_WIN_RING0",
     "_PHYSICAL_MEMORY_SUPPORT",
   ]
+
+  libs = [
+    "advapi32.lib",
+    "user32.lib",
+  ]
 }
 
 precompiled_header("sample_precompiled") {
@@ -96,7 +101,7 @@ executable("winring0_sample") {
 }
 
 windows_manifest("winring0_sample_manifest") {
-  sources = [ as_invoker_manifest, ]
+  sources = [ require_administrator_manifest, ]
 
   if (use_common_controls) {
     sources += [ common_controls_manifest, ]
