@@ -29,12 +29,13 @@ Thumbs.db
 /source/sample/Cpp/Release/
 /source/sample/Cs/obj/
 
-/source/dll/sys/lib
 *objfre*
 *objchk*
 buildfre*
 buildchk*
 
+/source/dll/sys/lib
+/source/dll/sys64/lib
 /source/dll/x64/*
 /source/sample/Cpp/x64/*
 /source/x64/*
